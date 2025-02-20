@@ -49,7 +49,6 @@ $$
 那么再结合二项式定理的模数，即：
 
 $$
-
 \begin {align}
 \nonumber
 (a + b)^p \mod p &= \sum_{k=0}^nC^k_na^kb^{p-k} \mod p\\
