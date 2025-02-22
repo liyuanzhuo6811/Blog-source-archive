@@ -126,3 +126,6 @@ baidu_url_submit:
   host: snowflavour.cn
   token: 4gEMcX8r8TjT4YWe
   path: baidu_urls.txt
+
+mathjax:
+  every_page: true
