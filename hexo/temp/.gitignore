@@ -1,9 +1,0 @@
-.DS_Store
-Thumbs.db
-db.json
-*.log
-.nojekyll
-node_modules/
-public/
-.deploy*/
-_multiconfig.yml
