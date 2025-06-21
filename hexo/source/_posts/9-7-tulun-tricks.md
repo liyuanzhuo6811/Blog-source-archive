@@ -2,6 +2,9 @@
 title: 9月7日——图论练习题目
 date: 2024-09-07 16:28:01
 tags:
+- 学习笔记
+- 图论
+- 练习题
 ---
 
 # [NOIP2015提高组 信息传递](https://www.luogu.com.cn/problem/P2661)

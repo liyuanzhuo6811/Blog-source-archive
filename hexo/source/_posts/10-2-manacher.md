@@ -1,7 +1,9 @@
 ---
 title: manacher算法详解
 date: 2024-10-02 19:12:11
-tags: 学习笔记
+tags: 
+- 学习笔记
+- 字符串
 ---
 
 # Part 0. 引子
