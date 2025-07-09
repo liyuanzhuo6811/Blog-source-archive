@@ -839,7 +839,7 @@ waline:
   meta: ['nick', 'mail', 'link']
   requiredMeta: ['nick']
   lang: 'zh-CN'
-  emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+  emoji: ['https://jsd-proxy.ygxz.in/gh/walinejs/emojis/weibo']
   dark: 'html[data-user-color-scheme="dark"]'
   wordLimit: 0
   pageSize: 10
