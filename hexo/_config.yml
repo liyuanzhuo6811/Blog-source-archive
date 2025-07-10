@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: butterfly
+theme: hexo-theme-fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -127,5 +127,11 @@ baidu_url_submit:
   token: 4gEMcX8r8TjT4YWe
   path: baidu_urls.txt
 
-mathjax:
-  every_page: true
+markdown_it_plus:
+  plugins:
+    - plugin:
+      name: '@iktakahiro/markdown-it-katex'
+      enable: true
+    - plugin:
+      name: '@andatoshiki/markdown-it-katex'
+      enable: true

@@ -43,7 +43,7 @@ var ogConfig = Object.assign({ image: ogImage && url_for(ogImage) }, theme.open_
     <%- theme.custom_head %>
   <% } %>
   <title><%= title %></title>
-
+  <link rel="stylesheet" href="https://lib.baomitu.com/KaTeX/latest/katex.min.css">
   <%- partial('_partials/css.ejs') %>
   <%- export_config() %>
   <%- js_ex(theme.static_prefix.internal_js, 'utils.js') %>
