@@ -1,4 +1,7 @@
 {
+    "editor.pasteAs.preferences": [
+        "markdown.link"
+    ],
     "editor.fontSize": 24,
     "files.autoSave": "afterDelay",
     "editor.cursorStyle": "block",
