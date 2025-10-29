@@ -1,0 +1,16 @@
+# Hexo 生成与依赖
+node_modules/
+public/
+.deploy_git/
+db.json
+
+# 缓存 / 临时
+.cache/
+.sass-cache/
+tmp/
+*.log
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.vscode/
