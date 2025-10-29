@@ -1,4 +1,4 @@
 ---
-title: laughing
+title: 一些好笑的东西
 date: 2025-07-13 15:34:46
 ---
