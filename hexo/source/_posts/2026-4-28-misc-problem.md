@@ -64,8 +64,14 @@ A 和 B 的异或和相等，相当于 $A\cup B$ 的异或和为 $0$。而任意
 
 于是每次插入一个节点，暴力查询他与 $k + 1$ 个独立集之间的边即可。这样的话查一个点的边只会用 $k + 1$ 次，非常牛。
 
-## 【未完成】[Check,Check,Check one two!](https://www.luogu.com.cn/problem/P5115)
+## [Check,Check,Check one two!](https://www.luogu.com.cn/problem/P5115)
 
 考虑 $\operatorname{lcs}(i, j)$ 和 $\operatorname{lcp}(i, j)$ 拼在一起相当于一个极长的相等子串，那么就相当于枚举 $i,j$，如果这个位置前面不同那么他的 $\operatorname{lcp}$ 就可以产生贡献。那么实际上贡献形式只有 $O(n)$ 种，只与 $\operatorname{lcp}$ 长度有关。推导一下发现实际上是个求等差数列和平方数列的和的形式，于是可以 $O(n)$ 处理。
 
-但是 $s_i \neq s_j$ 不好做，考虑容斥，计算所有答案和 $s_i = s_j$ 的答案即可。
+但是 $s_i \neq s_j$ 不好做，考虑容斥，计算所有答案和 $s_i = s_j$ 的答案即可。那么现在相当于是枚举每种字符，求一个下面的形式：
+
+$$
+\sum_{s_{x - 1} = s_{y - 1} = c} f(\operatorname{lcp}(x, y))
+$$
+
+这个东西直接做好像不大容易，但是发现 $\operatorname{lcp}$ 可以转化到 SA 上进行处理，那么对于所有的位置，把他们按照后缀排名排序，然后使用单调栈维护 $\operatorname{height}(i)$，同时记录每个位置对多少个位置产生了贡献，边扫描边求答案即可。时间复杂度非常优秀，容易写 $O(n\log n)$ 复杂度，也可以通过一些方式压到 $O(n)$，但是实际上优化并不明显。
