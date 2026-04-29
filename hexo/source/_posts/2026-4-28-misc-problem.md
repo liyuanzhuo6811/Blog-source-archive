@@ -43,3 +43,29 @@ A 和 B 的异或和相等，相当于 $A\cup B$ 的异或和为 $0$。而任意
 因此将整个问题转化到出现的频数上做，考虑记录对于每个 $v$ 一共出现了多少次，记录为 $C$。对这个 $C$ 做 FWT 变换之后，得到的第 $k$ 项就是 $\sum\limits_vC_v \times (-1)^{\operatorname{popcount}(v \operatorname{AND} k)}$。【存疑】
 
 发现其实这就是 $\text {EVEN} - \text {ODD}$。而还知道 $\text {EVEN} + \text {ODD} = n$，解方程就能得到两个未知数了，直接计算即可。
+
+# Day 3
+## [[CERC2017] Intrinsic Interval](https://www.luogu.com.cn/problem/P4747)
+
+不难发现两个好区间的交还是好区间，所以其实只需要找到可行的左端点即可。
+
+那么从右往左扫，每次找最左边的左端点即可。查询的时候相当于查询单点的最大值。
+
+## 【未完成】[Almost Multiplication Table](https://atcoder.jp/contests/agc061/tasks/agc061_d)
+
+## [Graph Coloring](https://qoj.ac/problem/4217)
+给每个节点一个颜色集合 $S$，发现只要 $S_u \nsubseteq S_v$，那么 $u \to v$ 就可以选出一个肯定不会在 $v$ 中出现的颜色。
+
+于是给每个节点分配 $7$ 种不同的颜色，可以得到 $\binom{14}{7}$ 种集合，这玩意大于 $n$，于是做完了。
+
+## [Hidden Graph](https://qoj.ac/problem/4218)
+
+相当于是说一个图最多有 $k + 1$ 个独立集，因为考虑不断删除度数最小的点直到删空，然后反着插入，那么每次插入的节点的度数都小于 $k$，因此一定可以把他划分到原先 $k + 1$ 个独立集之中的一个。
+
+于是每次插入一个节点，暴力查询他与 $k + 1$ 个独立集之间的边即可。这样的话查一个点的边只会用 $k + 1$ 次，非常牛。
+
+## 【未完成】[Check,Check,Check one two!](https://www.luogu.com.cn/problem/P5115)
+
+考虑 $\operatorname{lcs}(i, j)$ 和 $\operatorname{lcp}(i, j)$ 拼在一起相当于一个极长的相等子串，那么就相当于枚举 $i,j$，如果这个位置前面不同那么他的 $\operatorname{lcp}$ 就可以产生贡献。那么实际上贡献形式只有 $O(n)$ 种，只与 $\operatorname{lcp}$ 长度有关。推导一下发现实际上是个求等差数列和平方数列的和的形式，于是可以 $O(n)$ 处理。
+
+但是 $s_i \neq s_j$ 不好做，考虑容斥，计算所有答案和 $s_i = s_j$ 的答案即可。
