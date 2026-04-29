@@ -6,16 +6,21 @@ tags:
 categories: 2026二轮省集
 ---
 # Day 2
-## 【未完成】[New Year and Boolean Bridges](https://codeforces.com/problemset/problem/908/H)
+## [New Year and Boolean Bridges](https://codeforces.com/problemset/problem/908/H)
 如果是 AND 就相当于两个点在同一个 SCC 内。OR 相当于没限制，XOR 相当于两个点不在同一个 SCC 内。
 
 把所有 AND 的点都合并起来，不难发现最后一定是个链（不然就有不能到达的点）。那么现在就是要求把一些 SCC 合并起来，使得最终的 SCC 数量最少（这里不考虑孤立点）。
 
 发现删去孤立点以后最多只有 $23$ 个 SCC。因此可以设计一个状压 DP，记录 $f_{i, S}$ 表示加入了 $i$ 条树边，让 $S$ 集合内的 SCC 全部联通是否可行。转移可以是显然的，做子集枚举可以得到 $O(n3^n)$ 的做法。
 
-然而这个并不能子集枚举。考虑实际上这可以转化成一个 OR 卷积的形式，因为正好是分成两部分，一部分是 $f_{i - 1, S_1}$，另一部分是 $f_{0, S - S_1}$。如果两个集合是有交的，那么显然应该也是能够符合要求的。
+然而这个复杂度似乎并不能直接支持子集枚举。考虑实际上这可以转化成一个 OR 卷积的形式，因为正好是分成两部分，一部分是 $f_{i - 1, S_1}$，另一部分是 $f_{0, S - S_1}$。
+
+因此这就是一个标准的 FWT，可以做到 $O(n^2 2^{\frac n2})$。
+
+但是还是会被卡。注意到实际上只关心最后一个位置，因此不需要做 IFWT，只需要直接计算贡献即可。这样压掉一个 $n$，复杂度 $O(n2^{\frac n2})$。【存疑】
 
 ## 【未完成】[Takahashi The Strongest](https://atcoder.jp/contests/arc132/tasks/arc132_f)
+不会啊，FWT 好困难。
 
 ## [[EGOI 2021] Double Move / 二选一游戏](https://www.luogu.com.cn/problem/P9316)
 考虑对于某种固定下来的 $a, b$ 计算总共有多少种方式可以让 A 或者 B 赢。这是个比较典的套路，考虑相当于是对于每个 $(a_i, b_i)$ 作为一条边进行定向。
@@ -35,8 +40,6 @@ A 和 B 的异或和相等，相当于 $A\cup B$ 的异或和为 $0$。而任意
 
 问题是由于需要对于每个 $k$ 都做一遍，就算只是统计奇数和偶数项好像也会爆炸，因此需要有一种办法能够优秀地求对于每个 $k$ 的答案。
 
-因此将整个问题转化到出现的频数上做，考虑记录对于每个 $v$ 一共出现了多少次，记录为 $C$。对这个 $C$ 做 FWT 变换之后，得到的第 $k$ 项就是 $\sum\limits_vC_v \times (-1)^{\operatorname{popcount}(v \operatorname{AND} k)}$。
+因此将整个问题转化到出现的频数上做，考虑记录对于每个 $v$ 一共出现了多少次，记录为 $C$。对这个 $C$ 做 FWT 变换之后，得到的第 $k$ 项就是 $\sum\limits_vC_v \times (-1)^{\operatorname{popcount}(v \operatorname{AND} k)}$。【存疑】
 
 发现其实这就是 $\text {EVEN} - \text {ODD}$。而还知道 $\text {EVEN} + \text {ODD} = n$，解方程就能得到两个未知数了，直接计算即可。
-
-## 
