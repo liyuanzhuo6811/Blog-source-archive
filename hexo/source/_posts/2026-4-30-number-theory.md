@@ -37,4 +37,24 @@ categories:
 
 那么令 $V' = V \bmod B$，如果 $V' + A > M$，那么显然有 $k = 1$。否则，一定有 $V' + (kA) \bmod B < B$，否则这个终态还可以继续操作。
 
-因此得到了这个式子的范围，转化为求 $L \le kA \bmod B \le R$ 的最小 $k$。这个一般化的问题
+因此得到了这个式子的范围，转化为求 $L \le kA \bmod B \le R$ 的最小 $k$。这个问题需要进行一些转化，看上去取模不太好做，考虑转化成下取整的形式：
+
+$$
+\begin{align*}
+kA \bmod B & \in [L,R] \\
+\Rightarrow kA - B \left\lfloor \frac {kA}B\right \rfloor &  \in [L,R] \\
+\Rightarrow kA - (B \bmod A)\left\lfloor \frac {kA}B\right \rfloor-A \left\lfloor \frac BA\right \rfloor\left\lfloor \frac {kA}B\right \rfloor &\in [L,R]\\
+\Rightarrow A(k - \left\lfloor \frac BA\right \rfloor\left\lfloor \frac {kA}B\right \rfloor)-(B \bmod A)\left\lfloor \frac {kA}B\right \rfloor & \in [L, R]
+\end{align*}
+$$
+
+对这个东西进行换元，令 $y = \left\lfloor \frac {kA}B\right \rfloor$。那么经过变换，上面的式子就等价于：
+
+$$
+(B \bmod A)y \in [AX-r,AX - l]
+$$
+
+也就是说把两边对 $A$ 取余就可以把 $X$ 消掉，剩下一个 $(B \bmod A)y \bmod A \in [-r, -l]$。这个问题和上面的形式相同，于是可以类欧几里得计算。
+
+这个东西的感性理解方式就是相当于从 $0$ 开始每次往后跳 $A$ 步，每次大于 $B$ 就直接传送回来，那么这个 $y$ 就相当于是传送的次数，边界就是如果不用传送就能落在区间里面一定是优的，否则就相当于每次传送回来都产生一些偏移，得到了一个完全相同的子问题。
+
