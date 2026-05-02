@@ -1,8 +1,11 @@
 ---
-title: number-theory
+title: SDOI2026二轮省集 数论
 date: 2026-04-30 16:00:33
 tags:
-categories:
+- 数论
+- 数学
+- 练习题
+categories: 2026二轮省集
 ---
 ## [密码学第三次小作业](https://www.luogu.com.cn/problem/P5451)
 考虑一定可以找到一组 $s, t$，满足 $s e_1 + t e_2 = 1$。
