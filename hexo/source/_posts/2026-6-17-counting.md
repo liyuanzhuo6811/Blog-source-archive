@@ -33,15 +33,3 @@ $$
 
 ## [RandomPaintingOnABoard](https://archive.topcoder.com/ProblemStatement/pm/12607)
 
-# Day 3
-## [yanQval 的生成树](https://loj.ac/p/566)
-场上想了个正解的超集.jpg
-
-考虑相当于是找一半小的、一半大的。
-
-然后这个东西似乎不好直接算（因为大小没法同时贪心），于是考虑把小的取负数，然后相当于就是找一半的白边，直接 wqs 二分。
-
-所以我场上想了个啥。
-
-## 【未完成】T2
-## 【未完成】T3
