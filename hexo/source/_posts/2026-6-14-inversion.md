@@ -55,13 +55,37 @@ $$ f(k) = \sum_{i=k}^n \binom{i}{k} g(i) \iff g(k) = \sum_{i=k}^n (-1)^{i-k} \bi
 如果是随便划分（不要求必须要有），显然就是 $c^n$ 种方案。
 
 那么设 $f(x)$ 表示钦定 $x$ 个盒子随便放的方案数，二项式反演即可。
+## [[ARC121E] Directed Tree](https://atcoder.jp/contests/arc121/tasks/arc121_e)
+数逆排列。容斥成 $i$ 是 $b_i$ 的祖先，可以直接 DP。
 
+## [[ZJOI2022] 树](https://www.luogu.com.cn/problem/P8329)
+推一下式子，考虑设 $f(S)$ 表示恰好 $S$ 在第一棵树中不是叶子，$g(S)$ 表示恰好在第二棵树中不是叶子，那么答案就应该是 $\sum\limits_{S \subseteq U}f(S)g(T)$。
+
+但是这个不好求，考虑容斥掉 $f$ 和 $g$。设 $f'(S)$ 表示只有 $S$ 内的可能不是叶子，剩下的都是叶子的方案数。容易得到：
+
+$$f(S) = \sum_{S' \subseteq S}(-1)^{|S| - |S'|}f'(S')$$
+
+代进去，得到
+
+$$
+\begin{align}
+  
+\operatorname{Ans} &= \sum_{S \cap T = \varnothing,S \cup T = U} f(S)g(T) \\
+&= \sum_{S \cap T = \varnothing,S \cup T = U} \sum_{S' \subseteq S}\sum_{T' \subseteq T}  f'(S')g'(T')(-1)^{|S| + |T| - |S'| - |T'|} \\
+&= \sum_{S' \cap T' = \varnothing} f'(S')g'(T')(-1)^{n - |S'| - |T'|} 2^{n - |S'| - |T'|} \\
+&= \sum_{S' \cap T' = \varnothing} f'(S')g'(T')(-2)^{n - |S'| - |T'|} \\
+\end{align}
+$$
+
+能推出来实际上是因为 $(2)$ 中，$|S|+|T|$ 恰好等于 $n$，消掉了所有的 $S,T$ 相关的项。
+
+然后可以设 $dp_{i, j, k}$ 表示前 $i$ 个元素已经放好了，$|S' \cap [1, i]| = j, |T' \cap (i, n]| = k$ 的方案数。转移的时候讨论一下就可以了。
 ## [已经没有什么好害怕的了](https://www.luogu.com.cn/problem/P4859)
 首先排个序。
 
 恰好可以转成钦定，也就是钦定一些 $a_i > b_i$，剩下随便的方案数。
 
-那么考虑设 $f_{i, j}$ 表示前 $i$ 个钦定出来 $j$ 个大于的方案数。然后答案
+那么考虑设 $f_{i, j}$ 表示前 $i$ 个钦定出来 $j$ 个大于的方案数。然后答案就能算了。
 
 # 子集反演
 其实还是容斥，他和二项式反演的关系就是，如果 $f(S)$ 与 $S$ 的具体内容无关，而只与 $|S|$ 有关，那么就可以改写成二项式反演。子集反演主要有两种形式：
