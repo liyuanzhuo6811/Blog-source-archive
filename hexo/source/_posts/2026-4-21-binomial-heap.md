@@ -16,7 +16,7 @@ categories:
 
 下图展示了 $B_0$，$B_1$ 和 $B_3$。
 
-![alt text](graph.png)
+![alt text](../image/graph.png)
 
 这种结构具有一些非常优秀的性质。
 
