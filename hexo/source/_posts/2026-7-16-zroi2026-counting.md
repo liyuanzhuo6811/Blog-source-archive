@@ -176,7 +176,27 @@ $$
 
 $$
 \def\s#1#2{\begin{bmatrix}#1\\#2\end{bmatrix}}\def\S#1#2{\begin{Bmatrix}#1\\#2\end{Bmatrix}}
-\sum_{i=0}^n\binom nip^i(1-p)^{n-i}\sum_{j=0}^k\S{k}{j}i^{\underbar j}
+\begin{align}
+&\sum_{i=0}^n\binom nip^i(1-p)^{n-i}\sum_{j=0}^k\S{k}{j}i^{\underbar j}\\
+=&\sum_{i=0}^n\binom nip^i(1-p)^{n-i}\sum_{j=i}^k\S{k}{j}j! \binom ij\\
+=&\sum_{i=0}^n\sum_{j=i}^k j! \S kj p^i(1-p)^{n-i}\binom ni \binom ij \\
+=&\sum_{j=0}^kj!\S kj \binom nj\sum_{i=j}^n \binom {n-j}{i-j}p^i(1-p)^{n-i} \\
+=&\sum_{j=0}^kp^jj!\S kj \binom nj\sum_{i=0}^{n-j}\binom{n-j}ip^{i}(1-p)^{n-i-j} \\
+=&\sum_{j=0}^kp^jj!\S kj \binom nj
+\end{align}
+$$
+
+# 其他技巧
+## Bell 数
+整数划分的方案数。
+$$
+B_n = \sum_{k=0}^n\binom nk B_k
+$$
+## 卡特兰数
+括号序列数。
+
+$$
+H_0=1,H_1=1
 $$
 
 # 经典问题
