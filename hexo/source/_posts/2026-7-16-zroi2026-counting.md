@@ -7,7 +7,7 @@ tags:
 categories: 
 - ZROI2026省选一轮课程
 ---
-$$\def\s#1#2{\begin{bmatrix}#1\\#2\end{bmatrix}}$$
+$$\def\s#1#2{\begin{bmatrix}#1\\#2\end{bmatrix}}$$ 
 $$\def\S#1#2{\begin{Bmatrix}#1\\#2\end{Bmatrix}}$$
 # 组合数
 几个公式。
