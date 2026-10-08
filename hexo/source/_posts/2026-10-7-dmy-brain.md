@@ -13,12 +13,15 @@ categories: 代码源10月集训
 
 证明看上去非常猎奇。
 ## B. [Deque Bracket Optimization](https://qoj.ac/problem/22854)
+
 ## C. [Celester 2](https://atcoder.jp/contests/abc464/tasks/abc464_g)
 证明凸函数的方法：感性理解、打表、后面忘了。
 
 这题可以建费用流模型，所以同时可以证明反贪的正确性和函数的凸性。一个自然的想法是直接 DP，但是这样肯定没有任何前途（毕竟这个东西应该没什么优秀的性质），但是反过来是有的，算 $x$ 个 RS 需要进行几次操作。那这个看上去就很凸，因此可以闵和分治，双指针合并。
 ## D. [Children Yearn for the Evil Kindergarten](https://atcoder.jp/contests/abc458/tasks/abc458_g)
+
 ## E. [周长](https://codeforces.com/gym/106440/problem/E)
+
 ## F. [Investors](https://qoj.ac/problem/5507)
 两个傻X思考了半天怎么把决策单调性优化到一个 $\log$。
 
@@ -27,3 +30,10 @@ categories: 代码源10月集训
 然后问题来了，直接跑类似莫队的东西的话，复杂度是两个 $\log$ 的，怎么优化呢？事实上正常来说这题的板子之所以是两个 $\log$，是因为 $n$ 很大，而这个题 $n$ 只有 $6000$，所以可以直接把区间逆序对全都预处理出来。😰😰😰
 
 听说可以不带 $\log$，好牛，不会。
+## G. [Nawiasowe podziały [B]](https://qoj.ac/problem/5246)
+
+## H. [Graph Weighting](https://atcoder.jp/contests/utpc2023/tasks/utpc2023_g)
+
+## I. [True or False Test](https://qoj.ac/problem/10966)
+
+## J. [一棵树](https://qoj.ac/problem/7961)
