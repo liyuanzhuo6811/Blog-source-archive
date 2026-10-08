@@ -55,3 +55,10 @@ $$
 
 反射过去以后看上去好像没有问题，但是如果原来是 `AMB` 的话反射过去就会变成
 ## F. [Four Square Tiles](https://atcoder.jp/contests/arc197/tasks/arc197_e)
+$$
+\begin{align*}
+&x \\
+&x^2 + x+2\\
+=&
+\end{align*}
+$$
